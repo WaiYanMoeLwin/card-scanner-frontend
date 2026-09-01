@@ -17,7 +17,7 @@ function HomePage() {
     return (
         <div>
             <h1 className="text-2xl font-bold mb-4">Card Scanner</h1>
-            <p className="mb-4">Upload an image to detect and classify cards.</p>
+            <p className="mb-4">Upload an image to detect and classify cards. Currently supporting cards from Digimon TCG BT07 Deck only.</p>
             <ImageUploader onInferenceResult={handleInferenceResult} onImageUpload={handleImageUpload} />
             {inferenceResult && <InferenceResults results={inferenceResult} imageURL={imageURL} />}
         </div>
