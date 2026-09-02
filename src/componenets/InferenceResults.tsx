@@ -4,9 +4,10 @@ import DetectionResults from './DetectionResults';
 interface InferenceResultsProps {
     results: any;
     imageURL: string | null;
+    game: string;
 }
 
-export default function InferenceResults({ results, imageURL }: InferenceResultsProps) {
+export default function InferenceResults({ results, imageURL, game }: InferenceResultsProps) {
   if (!results) {
     return null;
   }
@@ -26,7 +27,7 @@ export default function InferenceResults({ results, imageURL }: InferenceResults
                             <h4 className='font-bold'>Card {index + 1}</h4>
                             <img src={`data:image/jpeg;base64,${result.warped_image_base64}`} alt={`Card ${index + 1}`} className="h-40 w-auto self-end" />
                         </div>
-                        <ClassificationResults results={result} />
+                        <ClassificationResults results={result} game={game} />
                     </div>
                 </div>
             ))}

@@ -4,9 +4,10 @@ import { getInference } from '../apis/inference'
 interface ImageUploaderProps {
     onInferenceResult: (result: any) => void
     onImageUpload: (imageURL: string | null) => void
+    game: string
 }
 
-export default function ImageUploader({ onInferenceResult, onImageUpload }: ImageUploaderProps) {
+export default function ImageUploader({ onInferenceResult, onImageUpload, game }: ImageUploaderProps) {
     const [image, setImage] = useState<File | null>(null)
     const [preview, setPreview] = useState<string | null>(null)
 
@@ -27,7 +28,7 @@ export default function ImageUploader({ onInferenceResult, onImageUpload }: Imag
         const formData = new FormData()
         formData.append('image', image)
         try {
-            const result = await getInference(formData)
+            const result = await getInference(formData, game)
             console.log('Inference result:', result.data)
             onInferenceResult(result.data)
         } catch (error) {

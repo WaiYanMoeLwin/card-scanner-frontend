@@ -7,10 +7,13 @@ const clientApi = axios.create({
   },
 });
 
-export const getInference = async (formData: FormData) => {
+export const getInference = async (formData: FormData, game: string) => {
   return clientApi.post('/inference', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
+    params: {
+      game
+    }
   });
 };
