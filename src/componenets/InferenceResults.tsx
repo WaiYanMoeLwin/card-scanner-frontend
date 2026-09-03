@@ -23,7 +23,7 @@ export default function InferenceResults({ results, imageURL, game }: InferenceR
             {results.results.map((result: any, index: number) => (
                 <div key={index}>
                     <div className="flex flex-row gap-4 overflow-x-auto">
-                        <div>
+                        <div className="shrink-0">
                             <h4 className='font-bold'>Card {index + 1}</h4>
                             <img src={`data:image/jpeg;base64,${result.warped_image_base64}`} alt={`Card ${index + 1}`} className="h-40 w-auto self-end" />
                         </div>
