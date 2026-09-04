@@ -28,8 +28,11 @@ export default function ImageUploader({ onInferenceResult, onImageUpload, game }
         const formData = new FormData()
         formData.append('image', image)
         try {
+            const startTime = performance.now()
             const result = await getInference(formData, game)
+            const endTime = performance.now()
             console.log('Inference result:', result.data)
+            console.log('Inference time:', endTime - startTime, 'ms')
             onInferenceResult(result.data)
         } catch (error) {
             console.error('Error occurred while fetching inference:', error)

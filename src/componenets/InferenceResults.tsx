@@ -25,7 +25,7 @@ export default function InferenceResults({ results, imageURL, game }: InferenceR
                     <div className="flex flex-row gap-4 overflow-x-auto">
                         <div className="shrink-0">
                             <h4 className='font-bold'>Card {index + 1}</h4>
-                            <img src={`data:image/jpeg;base64,${result.warped_image_base64}`} alt={`Card ${index + 1}`} className="h-40 w-auto self-end" />
+                            <img src={`${import.meta.env.VITE_BACKEND_SERVER_URL}warped-image?warped_image_path=${result.warped_image_path}`} alt={`Card ${index + 1}`} className="h-40 w-auto self-end" />
                         </div>
                         <ClassificationResults results={result} game={game} />
                     </div>
